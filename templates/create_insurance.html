@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Insurance</title>
+    <style>
+        /* Additional CSS styles for enhancement */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #007bff;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Insurance</h1>
+        <form method="POST">
+            <label for="insurance_type">Insurance Type:</label>
+            <input type="text" name="insurance_type" required><br><br>
+            <label for="premium">Premium:</label>
+            <input type="number" name="premium" required><br><br>
+            <label for="coverage">Coverage:</label>
+            <input type="text" name="coverage" required><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

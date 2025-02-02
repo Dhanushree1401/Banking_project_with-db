@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Additional CSS styles for enhancement */
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            border-bottom: none;
+            border-radius: 0;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .card-header:hover {
+            background-color: #0056b3;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .btn-custom {
+            margin-right: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-custom:active {
+            transform: translateY(1px);
+        }
+        .btn-custom i {
+            margin-right: 5px;
+        }
+        .text-danger:hover {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Welcome to Your Dashboard, {{ username }}</h1>
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-file-invoice-dollar"></i> Your Loan Applications
+            </div>
+            <div class="card-body">
+                <ul>
+                    {% for loan in loan_applications %}
+                    <li>{{ loan[2] }} - Amount: {{ loan[3] }}, Repayment Period: {{ loan[4] }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-shield-alt"></i> Your Insurance Applications
+            </div>
+            <div class="card-body">
+                <ul>
+                    {% for insurance in insurance_applications %}
+                    <li>{{ insurance[2] }} - Premium: {{ insurance[3] }}, Coverage: {{ insurance[4] }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-wallet"></i> Your Current Account Balance
+            </div>
+            <div class="card-body">
+                <p>{{ user_data[0][7] }}</p>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{{ url_for('add_credit', username=username) }}" class="btn btn-primary btn-custom"><i class="fas fa-money-bill-wave"></i> Add Credit</a>
+            <a href="{{ url_for('debit', username=username) }}" class="btn btn-danger btn-custom"><i class="fas fa-hand-holding-usd"></i> Debit</a>
+            <a href="{{ url_for('transactions', username=username) }}" class="btn btn-info btn-custom"><i class="fas fa-exchange-alt"></i> View Transactions</a>
+            <a href="{{ url_for('profile', username=username) }}" class="btn btn-secondary btn-custom"><i class="fas fa-user"></i> View Profile</a>
+            <a href="{{ url_for('update_profile', username=username) }}" class="btn btn-warning btn-custom"><i class="fas fa-user-edit"></i> Update Profile</a>
+            <a href="{{ url_for('create_insurance', username=username) }}" class="btn btn-success btn-custom"><i class="fas fa-shield-alt"></i> Create Insurance</a>
+            <a href="{{ url_for('apply_loan', username=username) }}" class="btn btn-dark btn-custom"><i class="fas fa-file-invoice-dollar"></i> Apply Loan</a>
+            
+            <!-- Logout button -->
+            <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-custom"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

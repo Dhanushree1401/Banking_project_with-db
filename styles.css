@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .loan, .insurance {
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .loan:hover, .insurance:hover {
+            background-color: #eaeaea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ username }}</h1>
+
+        <h2>Loan Applications</h2>
+        <ul>
+            {% for loan in loans %}
+            <li class="loan">{{ loan.loan_type }} - Amount: {{ loan.amount }}, Repayment Period: {{ loan.repayment_period }} months, Status: {{ loan.status }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Insurance Applications</h2>
+        <ul>
+            {% for insurance in insurances %}
+            <li class="insurance">{{ insurance.insurance_type }} - Premium: {{ insurance.premium }}, Coverage: {{ insurance.coverage }}, Status: {{ insurance.status }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

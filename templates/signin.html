@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In - DHD Bank of India</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #151111;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: 1rem;
+            text-align: left;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #3498db;
+            border: none;
+            border-radius: 4px;
+            color: #1e1111;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            color: #180d0d;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .back-link:hover {
+            color: #ffdead;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DHD Bank of India</h1>
+        <h2>Sign In</h2>
+        <form method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign In</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
+    </div>
+</body>
+</html>
