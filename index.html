@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call final.py</title>
+</head>
+<body>
+    <h1>Execute final.py</h1>
+    <button onclick="callFinalPy()">Run Script</button>
+    <p id="output"></p>
+
+    <script>
+        function callFinalPy() {
+            fetch('/run-script')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('output').innerText = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
